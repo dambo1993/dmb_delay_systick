@@ -76,6 +76,8 @@ void systick_set_timeout(uint32_t timeout)
 
 /*
  * Sprawdzenie timeoutu. Zwraca 0 jesli minal juz timeout.
+ *
+ * \return 0 jesli minal juz timeout w przeciwnym razie zwraca 1 "timeout trwa-tyka".
  */
 uint8_t systick_check_timeout()
 {

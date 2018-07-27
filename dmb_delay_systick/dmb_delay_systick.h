@@ -10,7 +10,7 @@
 
 #include <inttypes.h>
 
-//! typ dla callbacka wywolywanego z poziomu Systicka
+//! typ dla callbacka wywolywanego z poziomu przerwania Systicka
 typedef void (*dmb_delay_systick_callback_t)();
 
 /*
@@ -43,7 +43,7 @@ void systick_set_timeout(uint32_t timeout);
 /*
  * Sprawdzenie timeoutu. Zwraca 0 jesli minal juz timeout.
  *
- * \return 0 jesli minal juz timeout w przeciwnym razie zwraca 1.
+ * \return 0 jesli minal juz timeout w przeciwnym razie zwraca 1 "timeout trwa-tyka".
  */
 uint8_t systick_check_timeout();
 
