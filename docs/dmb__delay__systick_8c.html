@@ -81,7 +81,8 @@ $(document).ready(function(){initNavTree('dmb__delay__systick_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">dmb_delay_systick.c File Reference</div>  </div>
 </div><!--header-->
@@ -125,6 +126,17 @@ Functions</h2></td></tr>
 <tr class="memitem:ab5e09814056d617c521549e542639b7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dmb__delay__systick_8c.html#ab5e09814056d617c521549e542639b7e">SysTick_Handler</a> (void)</td></tr>
 <tr class="memdesc:ab5e09814056d617c521549e542639b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsluga przerwania od timera SysTick.  <a href="#ab5e09814056d617c521549e542639b7e">More...</a><br /></td></tr>
 <tr class="separator:ab5e09814056d617c521549e542639b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a18dbcf7df963b297c703775af232f052"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a></td></tr>
+<tr class="separator:a18dbcf7df963b297c703775af232f052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7686514b879e71d705fe118fe84f2233"><td class="memItemLeft" align="right" valign="top">static volatile <a class="el" href="dmb__delay__systick_8h.html#a211d7f16178b9da12966384e862bf888">dmb_delay_systick_callback_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a></td></tr>
+<tr class="separator:a7686514b879e71d705fe118fe84f2233"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae36785c79844daee61bfe4271681d2aa"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa">system_up_time</a></td></tr>
+<tr class="separator:ae36785c79844daee61bfe4271681d2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81bf4b848989a13ab38d62151544c3b9"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a></td></tr>
+<tr class="separator:a81bf4b848989a13ab38d62151544c3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a60484578223bab4621fb34d9666e1133"></a>
@@ -153,7 +165,10 @@ Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00052">52</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  delay_counter = delay;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">while</span>( delay_counter )</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#if DMB_SYSTICK_ENABLE_WFI</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    __WFI(); <span class="comment">// delikatne uspienie urzadzenia</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00013">delay_counter</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a> = delay;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordflow">while</span>( <a class="code" href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a> )</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#if DMB_SYSTICK_ENABLE_WFI</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    __WFI(); <span class="comment">// delikatne uspienie urzadzenia</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_a18dbcf7df963b297c703775af232f052"><div class="ttname"><a href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a></div><div class="ttdeci">static volatile uint32_t delay_counter</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00013">dmb_delay_systick.c:13</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a77a25e2abe717d312f0ff0761980576e"></a>
@@ -213,7 +228,10 @@ Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00040">40</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  callback = user_callback;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00015">callback</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a> = user_callback;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_a7686514b879e71d705fe118fe84f2233"><div class="ttname"><a href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a></div><div class="ttdeci">static volatile dmb_delay_systick_callback_t callback</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00015">dmb_delay_systick.c:15</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a86cc63c1c4cbc4fdc6f73c8d666735bc"></a>
@@ -239,7 +257,10 @@ Functions</h2></td></tr>
 </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00089">89</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span>(timeout_counter &gt; 0)</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> 1;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00019">timeout_counter</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a> &gt; 0)</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> 1;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">return</span> 0;</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_a81bf4b848989a13ab38d62151544c3b9"><div class="ttname"><a href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a></div><div class="ttdeci">static volatile uint32_t timeout_counter</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00019">dmb_delay_systick.c:19</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae02f188abd42eb6e9b50ebf5d8635c8e"></a>
@@ -261,7 +282,10 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00067">67</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">return</span> system_up_time;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00017">system_up_time</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa">system_up_time</a>;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_ae36785c79844daee61bfe4271681d2aa"><div class="ttname"><a href="dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa">system_up_time</a></div><div class="ttdeci">static volatile uint32_t system_up_time</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00017">dmb_delay_systick.c:17</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ab5e09814056d617c521549e542639b7e"></a>
@@ -283,7 +307,13 @@ Functions</h2></td></tr>
 <p>Obsluga przerwania od timera SysTick. </p>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00101">101</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  system_up_time++;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">// dekrementacja licznika odpowiadajacego za prosty delay</span></div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span>( delay_counter )</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  {</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    delay_counter--;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// dekrementacja licznika timeoutu</span></div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span>(timeout_counter)</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    timeout_counter--;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">// jesli mamy podpiety callback - wywolujemy go</span></div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">if</span>(callback)</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  {</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    callback();</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  }</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00015">callback</a>, <a class="el" href="dmb__delay__systick_8c_source.html#l00013">delay_counter</a>, <a class="el" href="dmb__delay__systick_8c_source.html#l00017">system_up_time</a>, and <a class="el" href="dmb__delay__systick_8c_source.html#l00019">timeout_counter</a>.</p>
+<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa">system_up_time</a>++;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">// dekrementacja licznika odpowiadajacego za prosty delay</span></div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordflow">if</span>( <a class="code" href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a> )</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  {</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a>--;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// dekrementacja licznika timeoutu</span></div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a>)</div><div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  {</div><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a>--;</div><div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="comment">// jesli mamy podpiety callback - wywolujemy go</span></div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a>)</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  {</div><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a>();</div><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  }</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_a7686514b879e71d705fe118fe84f2233"><div class="ttname"><a href="dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233">callback</a></div><div class="ttdeci">static volatile dmb_delay_systick_callback_t callback</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00015">dmb_delay_systick.c:15</a></div></div>
+<div class="ttc" id="dmb__delay__systick_8c_html_a81bf4b848989a13ab38d62151544c3b9"><div class="ttname"><a href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a></div><div class="ttdeci">static volatile uint32_t timeout_counter</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00019">dmb_delay_systick.c:19</a></div></div>
+<div class="ttc" id="dmb__delay__systick_8c_html_ae36785c79844daee61bfe4271681d2aa"><div class="ttname"><a href="dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa">system_up_time</a></div><div class="ttdeci">static volatile uint32_t system_up_time</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00017">dmb_delay_systick.c:17</a></div></div>
+<div class="ttc" id="dmb__delay__systick_8c_html_a18dbcf7df963b297c703775af232f052"><div class="ttname"><a href="dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052">delay_counter</a></div><div class="ttdeci">static volatile uint32_t delay_counter</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00013">dmb_delay_systick.c:13</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6f0a9e329cb827f233a74303dfda685f"></a>
@@ -311,7 +341,107 @@ Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00077">77</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
-<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  timeout_counter = timeout;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div></div><!-- fragment -->
+
+<p class="reference">References <a class="el" href="dmb__delay__systick_8c_source.html#l00019">timeout_counter</a>.</p>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a> = timeout;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div><div class="ttc" id="dmb__delay__systick_8c_html_a81bf4b848989a13ab38d62151544c3b9"><div class="ttname"><a href="dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9">timeout_counter</a></div><div class="ttdeci">static volatile uint32_t timeout_counter</div><div class="ttdef"><b>Definition:</b> <a href="dmb__delay__systick_8c_source.html#l00019">dmb_delay_systick.c:19</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a7686514b879e71d705fe118fe84f2233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7686514b879e71d705fe118fe84f2233">&#9670;&nbsp;</a></span>callback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="dmb__delay__systick_8h.html#a211d7f16178b9da12966384e862bf888">dmb_delay_systick_callback_t</a> callback</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00015">15</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
+
+</div>
+</div>
+<a id="a18dbcf7df963b297c703775af232f052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18dbcf7df963b297c703775af232f052">&#9670;&nbsp;</a></span>delay_counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t delay_counter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00013">13</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
+
+</div>
+</div>
+<a id="ae36785c79844daee61bfe4271681d2aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36785c79844daee61bfe4271681d2aa">&#9670;&nbsp;</a></span>system_up_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t system_up_time</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00017">17</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
+
+</div>
+</div>
+<a id="a81bf4b848989a13ab38d62151544c3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81bf4b848989a13ab38d62151544c3b9">&#9670;&nbsp;</a></span>timeout_counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t timeout_counter</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="dmb__delay__systick_8c_source.html#l00019">19</a> of file <a class="el" href="dmb__delay__systick_8c_source.html">dmb_delay_systick.c</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
