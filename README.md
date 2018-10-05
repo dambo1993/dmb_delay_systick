@@ -13,6 +13,7 @@ W repozytorium znajdziemy:
 * przyk³adowy plik konfiguracyjny
 * #todo - przyk³adowy projekt z wykorzystaniem tej biblioteki, aczkolwiek raczej opis jest wyczerpuj¹cy
 * instrukcja w postaci tego pliku
+* dokumentacja w doxygenia - dostêpna te¿ pod tym linkiem: https://dambo1993.github.io/dmb_delay_systick/index.html
 
 ### Zasada dzia³ania i mo¿liwoœci biblioteki
 
