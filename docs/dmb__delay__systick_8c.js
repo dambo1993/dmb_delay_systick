@@ -6,9 +6,5 @@ var dmb__delay__systick_8c =
     [ "systick_check_timeout", "dmb__delay__systick_8c.html#a86cc63c1c4cbc4fdc6f73c8d666735bc", null ],
     [ "systick_get_system_uptime", "dmb__delay__systick_8c.html#ae02f188abd42eb6e9b50ebf5d8635c8e", null ],
     [ "SysTick_Handler", "dmb__delay__systick_8c.html#ab5e09814056d617c521549e542639b7e", null ],
-    [ "systick_set_timeout", "dmb__delay__systick_8c.html#a6f0a9e329cb827f233a74303dfda685f", null ],
-    [ "callback", "dmb__delay__systick_8c.html#a7686514b879e71d705fe118fe84f2233", null ],
-    [ "delay_counter", "dmb__delay__systick_8c.html#a18dbcf7df963b297c703775af232f052", null ],
-    [ "system_up_time", "dmb__delay__systick_8c.html#ae36785c79844daee61bfe4271681d2aa", null ],
-    [ "timeout_counter", "dmb__delay__systick_8c.html#a81bf4b848989a13ab38d62151544c3b9", null ]
+    [ "systick_set_timeout", "dmb__delay__systick_8c.html#a6f0a9e329cb827f233a74303dfda685f", null ]
 ];
