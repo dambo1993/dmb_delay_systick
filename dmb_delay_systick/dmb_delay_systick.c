@@ -10,6 +10,14 @@
 #include DMB_SYSTICK_SYSTEM_INCLUDE
 #include <inttypes.h>
 
+/** \addtogroup dmb_delay_systick
+ *  @{
+ */
+
+/** \addtogroup static_variables
+ *  @{
+ */
+
 static volatile uint32_t delay_counter;
 
 static volatile dmb_delay_systick_callback_t callback;
@@ -17,6 +25,60 @@ static volatile dmb_delay_systick_callback_t callback;
 static volatile uint32_t system_up_time;
 
 static volatile uint32_t timeout_counter;
+
+/** @}*/
+
+/** \addtogroup static_functions
+ *  @{
+ */
+
+/**
+ *
+ */
+static inline void decrement_delay_counter(void)
+{
+	if( delay_counter )
+	{
+		delay_counter--;
+	}
+}
+
+/**
+ *
+ */
+static inline void decrement_timeout_counter(void)
+{
+	if( delay_counter )
+	{
+		delay_counter--;
+	}
+}
+
+/**
+ *
+ */
+static inline void call_callback(void)
+{
+	if(callback)
+	{
+		callback();
+	}
+}
+
+/**
+ *
+ */
+static inline void increment_system_up_time(void)
+{
+	system_up_time++;
+}
+
+/** @}*/
+
+
+/** \addtogroup functions
+ *  @{
+ */
 
 /**
  * \brief Inicjalizuje Systick na przerwanie co 1ms.
@@ -100,23 +162,15 @@ uint8_t systick_check_timeout()
  */
 void SysTick_Handler(void)
 {
-	system_up_time++;
+	increment_system_up_time();
 
-	// dekrementacja licznika odpowiadajacego za prosty delay
-	if( delay_counter )
-	{
-		delay_counter--;
-	}
+	decrement_delay_counter();
 
-	// dekrementacja licznika timeoutu
-	if(timeout_counter)
-	{
-		timeout_counter--;
-	}
+	decrement_timeout_counter();
 
-	// jesli mamy podpiety callback - wywolujemy go
-	if(callback)
-	{
-		callback();
-	}
+	call_callback();
 }
+
+/** @}*/ // functions
+
+/** @}*/ // dmb_delay_systick

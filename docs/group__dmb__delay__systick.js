@@ -1,6 +1,8 @@
 var group__dmb__delay__systick =
 [
-    [ "DMB_SYSTICK_ENABLE_WFI", "group__dmb__delay__systick.html#ga4c70de38753274c88d7ad7958ad8beb5", null ],
-    [ "DMB_SYSTICK_INTERRUPT_PRIORITY", "group__dmb__delay__systick.html#gac65ada5dfdbe667e68d02a8631335687", null ],
-    [ "DMB_SYSTICK_SYSTEM_INCLUDE", "group__dmb__delay__systick.html#gaa54a26ec60288a7cfaabcbecfa8339b7", null ]
+    [ "Static_variables", "group__static__variables.html", "group__static__variables" ],
+    [ "Static_functions", "group__static__functions.html", "group__static__functions" ],
+    [ "Functions", "group__functions.html", "group__functions" ],
+    [ "Headers", "group__headers.html", "group__headers" ],
+    [ "Settings", "group__settings.html", "group__settings" ]
 ];

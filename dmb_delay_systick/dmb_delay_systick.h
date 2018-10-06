@@ -10,6 +10,14 @@
 
 #include <inttypes.h>
 
+/** \addtogroup dmb_delay_systick
+ *  @{
+ */
+
+/** \addtogroup headers
+ *  @{
+ */
+
 /**
  * \brief typ dla callbacka wywolywanego z poziomu przerwania Systicka
  */
@@ -68,6 +76,8 @@ uint32_t systick_get_system_uptime();
  */
 void SysTick_Handler(void);
 
+/** @}*/
 
+/** @}*/
 
 #endif /* DMB_DELAY_SYSTICK_H_ */

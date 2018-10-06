@@ -12,6 +12,10 @@
  *  @{
  */
 
+/** \addtogroup settings
+ *  @{
+ */
+
 /**
  * \brief Plik "systemowy" zalezny od plaftormy na jaka piszemy
  */
@@ -26,6 +30,10 @@
  * \brief Wybor, czy w czasie deleya mamy uspic mikrokontroler, nie zawsze chcemy to robic, np RTT ma problemy z uruchomiona ta opcja
  */
 #define DMB_SYSTICK_ENABLE_WFI 1
+
+
+
+/** @}*/
 
 /** @}*/
 
