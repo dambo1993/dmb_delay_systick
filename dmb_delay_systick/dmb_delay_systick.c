@@ -48,9 +48,9 @@ static inline void decrement_delay_counter(void)
  */
 static inline void decrement_timeout_counter(void)
 {
-	if( delay_counter )
+	if( timeout_counter )
 	{
-		delay_counter--;
+		timeout_counter--;
 	}
 }
 
