@@ -63,13 +63,13 @@ void systick_set_timeout(uint32_t timeout);
  * 		@arg 0: Timeout minal
  * 		@arg 1: Timeout jeszcze nie minal
  */
-uint8_t systick_check_timeout();
+uint8_t systick_check_timeout(void);
 
 /**
  * \brief Pobranie czasu dzialania urzadzenia w milisekundach. Przepelnia sie po ~49dniach.
  * @return
  */
-uint32_t systick_get_system_uptime();
+uint32_t systick_get_system_uptime(void);
 
 /**
  * \brief Obsluga przerwania od timera SysTick.
