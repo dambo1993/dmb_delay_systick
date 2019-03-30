@@ -68,6 +68,16 @@ static inline void call_callback(void)
 /**
  *
  */
+static inline void wfi_sleep(void)
+{
+#if DMB_SYSTICK_ENABLE_WFI
+	__WFI(); // delikatne uspienie urzadzenia
+#endif
+}
+
+/**
+ *
+ */
 static inline void increment_system_up_time(void)
 {
 	system_up_time++;
@@ -116,9 +126,7 @@ void _delay_ms( uint32_t delay )
 	delay_counter = delay;
 	while( delay_counter )
 	{
-#if DMB_SYSTICK_ENABLE_WFI
-		__WFI(); // delikatne uspienie urzadzenia
-#endif
+		wfi_sleep();
 	}
 }
 
