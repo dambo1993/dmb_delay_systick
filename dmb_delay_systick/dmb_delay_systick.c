@@ -7,7 +7,6 @@
 
 #include "dmb_delay_systick.h"
 #include <libs_config/dmb_systick_settings.h>
-#include DMB_SYSTICK_SYSTEM_INCLUDE
 #include <inttypes.h>
 
 /** \addtogroup dmb_delay_systick

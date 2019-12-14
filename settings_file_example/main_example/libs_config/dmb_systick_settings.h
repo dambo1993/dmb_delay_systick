@@ -19,7 +19,7 @@
 /**
  * \brief Plik "systemowy" zalezny od plaftormy na jaka piszemy
  */
-#define DMB_SYSTICK_SYSTEM_INCLUDE 		"stm32f0xx.h"
+#include "stm32f0xx.h"
 
 /**
  * \brief Priorytet przerwania do SysTicka
