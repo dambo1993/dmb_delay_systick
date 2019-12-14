@@ -17,8 +17,6 @@
  *  @{
  */
 
-static volatile uint32_t delay_counter;
-
 static volatile dmb_delay_systick_callback_t callback;
 
 static volatile uint32_t system_up_time;
@@ -30,17 +28,6 @@ static volatile uint32_t timeout_counter;
 /** \addtogroup static_functions
  *  @{
  */
-
-/**
- *
- */
-static inline void decrement_delay_counter(void)
-{
-	if( delay_counter )
-	{
-		delay_counter--;
-	}
-}
 
 /**
  *
@@ -67,7 +54,7 @@ static inline void call_callback(void)
 /**
  *
  */
-static inline void wfi_sleep(void)
+static inline void systick_wfi_sleep(void)
 {
 #if DMB_SYSTICK_ENABLE_WFI
 	__WFI(); // delikatne uspienie urzadzenia
@@ -122,10 +109,21 @@ void dmb_delay_systick_register_callback(dmb_delay_systick_callback_t user_callb
  */
 void _delay_ms( uint32_t delay )
 {
-	delay_counter = delay;
-	while( delay_counter )
+	uint32_t expected_time = system_up_time + delay;
+
+	if(expected_time < system_up_time) //! in case of sys_up_time overflow
 	{
-		wfi_sleep();
+		while( system_up_time > 0xefffffff || system_up_time < expected_time )
+		{
+			systick_wfi_sleep();
+		}
+	}
+	else
+	{
+		while( system_up_time < expected_time )
+		{
+			systick_wfi_sleep();
+		}
 	}
 }
 
@@ -170,8 +168,6 @@ uint8_t systick_check_timeout(void)
 void SysTick_Handler(void)
 {
 	increment_system_up_time();
-
-	decrement_delay_counter();
 
 	decrement_timeout_counter();
 
